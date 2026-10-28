@@ -34,6 +34,7 @@
 - [🎯 O que o trabalho precisa entregar](#-o-que-o-trabalho-precisa-entregar)
 - [🚀 Como rodar na sua máquina](#-como-rodar-na-sua-máquina)
 - [🗂️ Estrutura do projeto](#️-estrutura-do-projeto)
+- [📍 Onde cada um modifica](#-onde-cada-um-modifica)
 - [🧩 Divisão de tarefas](#-divisão-de-tarefas)
 - [🔀 Fluxo de trabalho com Git](#-fluxo-de-trabalho-com-git-pelo-intellij)
 - [✍️ Padrão de código](#️-padrão-de-código)
@@ -81,7 +82,7 @@ A partir dela, o programa:
         I     A           N     M
 ```
 
-Em cada linha, `. /` é o caminho para a **esquerda** e `\ -` o caminho para a **direita**.
+Em cada linha, `. /` é o caminho para a **esquerda** e `\ -` o caminho para a **direita**.  
 Para chegar ao **A** (`.-`): raiz → esquerda (`.`) até o **E** → direita (`-`) até o **A**.
 
 ---
@@ -160,13 +161,14 @@ mvnw.cmd javafx:run      (Windows)
 
 ```
 src/main/java/br/pucpr/codigomorse/
-├── Node.java              # nó da árvore: letter, left, right
-├── MorseAlphabet.java     # tabela letra → código Morse
-├── MorseBST.java          # insert, encode, decode, getHeight
-├── TreeDrawer.java        # desenho da árvore no Canvas (drawTree/drawNode)
-├── MorseSoundPlayer.java  # bipes curtos e longos
-└── TreeVisualizer.java    # janela JavaFX (interface) e main
-module-info.java           # requires javafx.controls, java.desktop
+├── Node.java              # nó da árvore (pronto no esqueleto)
+├── MorseAlphabet.java     # [Gabriela] tabela letra → código Morse
+├── MorseBST.java          # [Gabriela] insert · [Isabelle] encode/decode
+├── TreeDrawer.java        # [Pedro, opcional] desenho da árvore no Canvas
+├── MorseSoundPlayer.java  # [Laura] bipes curtos e longos
+└── TreeVisualizer.java    # [Pedro] janela JavaFX (interface) e main
+src/main/java/module-info.java       # requires javafx.controls, java.desktop
+src/test/java/br/pucpr/codigomorse/  # [Laura] testes JUnit
 ```
 
 O código base da professora trazia `Node` e `MorseBST` dentro do `TreeVisualizer`. A **Etapa 0** (abaixo) separa tudo em arquivos para cada pessoa trabalhar sem conflito.
@@ -178,12 +180,15 @@ O código base da professora trazia `Node` e `MorseBST` dentro do `TreeVisualize
 - A raiz da árvore não tem letra (usamos `' '`).
 - Letras maiúsculas; ignorar ou avisar sobre caracteres sem código.
 
-### 📜 Contrato da `MorseBST`
+### 📜 Contratos entre as partes
 
-Todos programam contra estas assinaturas, para trabalhar em paralelo:
+Todos programam contra estas assinaturas, para trabalhar em paralelo.
+
+**`MorseBST`** (Gabriela e Isabelle):
 
 ```java
 public MorseBST()
+public Node getRoot()
 public void insert(char letter, String morseCode)
 public char decodeLetter(String morseCode)     // ".-"  -> 'A'
 public String encodeLetter(char letter)        // 'A'   -> ".-"
@@ -192,26 +197,63 @@ public String encodeMessage(String text)       // "AB"  -> ".- -..."
 public int getHeight()
 ```
 
+**`MorseSoundPlayer`** (Laura):
+
+```java
+public void playMorse(String morseCode)        // ".- -... / .-.." -> toca o som
+```
+
+---
+
+## 📍 Onde cada um modifica
+
+Cada arquivo tem um **responsável**, e os pontos exatos de trabalho estão marcados no código com comentários `TODO (Nome)`.
+No IntelliJ, abra a aba **TODO** (barra inferior ou **View → Tool Windows → TODO**) para ver todos eles.
+
+| Arquivo | Quem mexe | O que fazer lá |
+|---------|-----------|----------------|
+| `MorseAlphabet.java` | 🌱 **Gabriela** | Preencher o mapa de `getAlphabet()` com A–Z (e números) e seus códigos Morse |
+| `MorseBST.java` → `insert` | 🌱 **Gabriela** | Inserir cada letra: `.` para a esquerda e `-` para a direita |
+| `MorseBST.java` → `decodeLetter`, `encodeLetter`, `decodeMessage`, `encodeMessage` | 🔁 **Isabelle** | Codificar e decodificar letras e mensagens, tratando entradas inválidas |
+| `TreeVisualizer.java` → `start()` | 🖥️ **Pedro** | Campo de texto, botões, área de resultado e `ScrollPane` com o canvas |
+| `TreeDrawer.java` | 🖥️ **Pedro** (opcional) | Só se quiser melhorar o desenho (cores, tamanho, espaçamento) |
+| `MorseSoundPlayer.java` → `playMorse` | 🔊 **Laura** | Gerar e tocar os bipes em thread separada |
+| `src/test/java/br/pucpr/codigomorse/` | 🔊 **Laura** | Testes JUnit (por exemplo, `MorseBSTTest.java`) |
+| `Node.java` | — | Pronto no esqueleto. Só altere avisando o grupo |
+| `pom.xml`, `module-info.java` | — | Não mexer sem avisar o grupo |
+
+> [!WARNING]
+> `MorseBST.java` é o **único arquivo dividido por duas pessoas** (Gabriela e Isabelle). Para evitar conflito:
+> - Cada uma mexe **só nos seus métodos**, sem reorganizar nem renomear o resto do arquivo.
+> - A Gabriela entra primeiro na `main`. Antes de abrir o Pull Request, a Isabelle traz a `main` para a sua branch (no menu de branches, clique em `origin/main` → **Merge into Current**).
+> - Se aparecer conflito, resolvam juntas na janela de merge do IntelliJ.
+
 ---
 
 ## 🧩 Divisão de tarefas
 
 ### 🏁 Etapa 0 – Esqueleto (Isabelle, antes de todos)
 
-- [ ] Criar os arquivos da estrutura acima, mover `Node` e `MorseBST` para arquivos próprios e `drawTree`/`drawNode` para `TreeDrawer`
-- [ ] Declarar os métodos do contrato (podem retornar valores provisórios)
+- [ ] Criar os arquivos da estrutura acima (`Node`, `MorseAlphabet`, `MorseBST`, `TreeDrawer`, `MorseSoundPlayer`), mover o desenho para `TreeDrawer` e enxugar o `TreeVisualizer`
+- [ ] Declarar os métodos dos contratos (podem retornar valores provisórios)
+- [ ] Marcar em cada arquivo, com comentários `TODO (Nome)`, o ponto onde cada pessoa vai trabalhar
 - [ ] Conferir que o projeto compila e roda, e dar push na `main`
 - [ ] Avisar o grupo. **Só depois disso os outros começam.**
 
 ### 🌱 Gabriela – Núcleo da árvore (3 pontos)
 
-- [ ] `Node` com `letter`, `left`, `right`
-- [ ] `MorseAlphabet`: A–Z (e números, se quiserem)
+📁 **Onde mexer:** `MorseAlphabet.java` e o método `insert` de `MorseBST.java`  
+🌿 **Branch sugerida:** `feature/insert`
+
+- [ ] `MorseAlphabet.getAlphabet()`: preencher o mapa com A–Z (e números, se quiserem)
 - [ ] `MorseBST.insert`: percorrer o código; `.` vai para a esquerda e `-` para a direita; criar os nós intermediários vazios; colocar a letra no último nó
-- [ ] Preencher a árvore com o alfabeto ao iniciar o programa
-- [ ] Conferir se a árvore desenhada bate com a tabela Morse
+- [ ] Conferir se a árvore desenhada bate com a tabela Morse (o `fillTree` do `TreeVisualizer` já lê o `MorseAlphabet` e chama o `insert`, então não precisa mexer lá)
+- [ ] Se o `Node` precisar de algum ajuste, avisar o grupo antes
 
 ### 🔁 Isabelle – Codificar e decodificar (2 + 2 pontos)
+
+📁 **Onde mexer:** métodos `decodeLetter`, `encodeLetter`, `decodeMessage` e `encodeMessage` de `MorseBST.java`  
+🌿 **Branch sugerida:** `feature/encode-decode`
 
 - [ ] `decodeLetter`: seguir o caminho da raiz até o nó
 - [ ] `decodeMessage`: separar letras por espaço e palavras por `/`
@@ -221,7 +263,9 @@ public int getHeight()
 
 ### 🖥️ Pedro – Interface JavaFX (1,5 ponto)
 
-- [ ] Mover o desenho para `TreeDrawer` (se ainda não estiver)
+📁 **Onde mexer:** `TreeVisualizer.java` (método `start()`); `TreeDrawer.java` só se quiser melhorar o desenho  
+🌿 **Branch sugerida:** `feature/interface`
+
 - [ ] Campo de texto para o usuário digitar
 - [ ] Botões **Codificar**, **Decodificar** e **Tocar som** (ligado à parte da Laura)
 - [ ] Área de resultado na tela
@@ -229,6 +273,9 @@ public int getHeight()
 - [ ] Mensagens de erro amigáveis
 
 ### 🔊 Laura – Som e testes (+1 ponto e 1,5 ponto)
+
+📁 **Onde mexer:** `MorseSoundPlayer.java` (método `playMorse`) e a pasta `src/test/java/br/pucpr/codigomorse/`  
+🌿 **Branch sugerida:** `feature/som`
 
 - [ ] `MorseSoundPlayer` com `javax.sound.sampled`: tom de ~600 Hz, ponto curto, traço longo, pausas entre letras e palavras
 - [ ] Tocar em **thread separada**, para a janela não travar
@@ -263,7 +310,7 @@ Enquanto o `insert` não estiver pronto, Isabelle, Pedro e Laura programam contr
 7. Depois do merge, todos fazem **Update Project** na `main` e atualizam suas branches.
 
 > [!TIP]
-> Para evitar conflitos, cada pessoa mexe, em geral, nos **arquivos da sua parte**. Se precisar alterar um arquivo de outra pessoa, avise o grupo antes.
+> Para evitar conflitos, cada pessoa mexe só nos **arquivos da sua parte** (veja [Onde cada um modifica](#-onde-cada-um-modifica)). Se precisar alterar um arquivo de outra pessoa, avise o grupo antes.
 
 ---
 
