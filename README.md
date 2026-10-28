@@ -234,11 +234,11 @@ No IntelliJ, abra a aba **TODO** (barra inferior ou **View → Tool Windows → 
 
 ### 🏁 Etapa 0 – Esqueleto (Isabelle, antes de todos)
 
-- [ ] Criar os arquivos da estrutura acima (`Node`, `MorseAlphabet`, `MorseBST`, `TreeDrawer`, `MorseSoundPlayer`), mover o desenho para `TreeDrawer` e enxugar o `TreeVisualizer`
-- [ ] Declarar os métodos dos contratos (podem retornar valores provisórios)
-- [ ] Marcar em cada arquivo, com comentários `TODO (Nome)`, o ponto onde cada pessoa vai trabalhar
-- [ ] Conferir que o projeto compila e roda, e dar push na `main`
-- [ ] Avisar o grupo. **Só depois disso os outros começam.**
+- [X] Criar os arquivos da estrutura acima (`Node`, `MorseAlphabet`, `MorseBST`, `TreeDrawer`, `MorseSoundPlayer`), mover o desenho para `TreeDrawer` e enxugar o `TreeVisualizer`
+- [X] Declarar os métodos dos contratos (podem retornar valores provisórios)
+- [X] Marcar em cada arquivo, com comentários `TODO (Nome)`, o ponto onde cada pessoa vai trabalhar
+- [X] Conferir que o projeto compila e roda, e dar push na `main`
+- [X] Avisar o grupo. **Só depois disso os outros começam.**
 
 ### 🌱 Gabriela – Núcleo da árvore (3 pontos)
 
