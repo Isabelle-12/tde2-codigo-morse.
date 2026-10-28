@@ -73,17 +73,16 @@ A partir dela, o programa:
 
 ### Exemplo: os primeiros níveis da árvore
 
-```mermaid
-graph TD
-    R(("raiz")) -->|"."| E["E"]
-    R -->|"-"| T["T"]
-    E -->|"."| I["I"]
-    E -->|"-"| A["A"]
-    T -->|"."| N["N"]
-    T -->|"-"| M["M"]
+```
+                 (raiz)
+          . /               \ -
+           E                 T
+       . /   \ -         . /   \ -
+        I     A           N     M
 ```
 
-Para chegar ao **A** (`.-`): raiz → esquerda (`.`) → direita (`-`).
+Em cada linha, `. /` é o caminho para a **esquerda** e `\ -` o caminho para a **direita**.
+Para chegar ao **A** (`.-`): raiz → esquerda (`.`) até o **E** → direita (`-`) até o **A**.
 
 ---
 
@@ -91,10 +90,10 @@ Para chegar ao **A** (`.-`): raiz → esquerda (`.`) → direita (`-`).
 
 | # | Nome | Usuário no GitHub | Parte |
 |---|------|-------------------|-------|
-| 1 | Gabriela | _preencher_ | 🌱 Núcleo da árvore |
-| 2 | Isabelle | _preencher_ | 🔁 Codificar e decodificar |
-| 3 | Pedro | _preencher_ | 🖥️ Interface JavaFX |
-| 4 | Laura | _preencher_ | 🔊 Som e testes |
+| 1 | Gabriela | gabiistp | 🌱 Núcleo da árvore |
+| 2 | Isabelle | Isabelle-12 | 🔁 Codificar e decodificar |
+| 3 | Pedro | pedrobrecher | 🖥️ Interface JavaFX |
+| 4 | Laura | lauraneris | 🔊 Som e testes |
 
 ---
 
