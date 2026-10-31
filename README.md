@@ -22,7 +22,6 @@
 > [!IMPORTANT]
 > 📅 **Data de entrega: 06/11/2026 (sexta-feira)**
 > Entrega pelo link do repositório no GitHub (público) ou pelo projeto compactado no Canvas.
-> A **prova de autoria** acontece na data do cronograma da disciplina, e quem faltar fica com **nota 0**.
 
 ---
 
@@ -38,7 +37,6 @@
 - [🧩 Divisão de tarefas](#-divisão-de-tarefas)
 - [🔀 Fluxo de trabalho com Git](#-fluxo-de-trabalho-com-git-pelo-intellij)
 - [✍️ Padrão de código](#️-padrão-de-código)
-- [🎓 Prova de autoria](#-prova-de-autoria)
 - [✅ Checklist de entrega](#-checklist-de-entrega)
 - [🏷️ Tags](#️-tags)
 - [🙌 Créditos](#-créditos)
@@ -108,9 +106,6 @@ Para chegar ao **A** (`.-`): raiz → esquerda (`.`) até o **E** → direita (`
 | Imprimir a árvore de forma clara (código base já fornecido) | **1,5** |
 | Código modularizado em classes e funções, nomes claros, camelCase | **1,5** |
 | ⭐ **Extra:** som | **+1** |
-
-> [!WARNING]
-> **Prova de autoria:** todos do grupo precisam saber explicar o código inteiro. Veja a seção [Prova de autoria](#-prova-de-autoria).
 
 ---
 
@@ -245,21 +240,21 @@ No IntelliJ, abra a aba **TODO** (barra inferior ou **View → Tool Windows → 
 📁 **Onde mexer:** `MorseAlphabet.java` e o método `insert` de `MorseBST.java`  
 🌿 **Branch sugerida:** `feature/insert`
 
-- [ ] `MorseAlphabet.getAlphabet()`: preencher o mapa com A–Z (e números, se quiserem)
-- [ ] `MorseBST.insert`: percorrer o código; `.` vai para a esquerda e `-` para a direita; criar os nós intermediários vazios; colocar a letra no último nó
-- [ ] Conferir se a árvore desenhada bate com a tabela Morse (o `fillTree` do `TreeVisualizer` já lê o `MorseAlphabet` e chama o `insert`, então não precisa mexer lá)
-- [ ] Se o `Node` precisar de algum ajuste, avisar o grupo antes
+- [X] `MorseAlphabet.getAlphabet()`: preencher o mapa com A–Z (e números, se quiserem)
+- [X] `MorseBST.insert`: percorrer o código; `.` vai para a esquerda e `-` para a direita; criar os nós intermediários vazios; colocar a letra no último nó
+- [X] Conferir se a árvore desenhada bate com a tabela Morse (o `fillTree` do `TreeVisualizer` já lê o `MorseAlphabet` e chama o `insert`, então não precisa mexer lá)
+- [X] Se o `Node` precisar de algum ajuste, avisar o grupo antes
 
 ### 🔁 Isabelle – Codificar e decodificar (2 + 2 pontos)
 
 📁 **Onde mexer:** métodos `decodeLetter`, `encodeLetter`, `decodeMessage` e `encodeMessage` de `MorseBST.java`  
 🌿 **Branch sugerida:** `feature/encode-decode`
 
-- [ ] `decodeLetter`: seguir o caminho da raiz até o nó
-- [ ] `decodeMessage`: separar letras por espaço e palavras por `/`
-- [ ] `encodeLetter`: buscar a letra na árvore e montar o caminho (`.`/`-`)
-- [ ] `encodeMessage`
-- [ ] Tratar entrada inválida (símbolo desconhecido, caractere sem código, texto vazio)
+- [X] `decodeLetter`: seguir o caminho da raiz até o nó
+- [X] `decodeMessage`: separar letras por espaço e palavras por `/`
+- [X] `encodeLetter`: buscar a letra na árvore e montar o caminho (`.`/`-`)
+- [X] `encodeMessage`
+- [X] Tratar entrada inválida (símbolo desconhecido, caractere sem código, texto vazio)
 
 ### 🖥️ Pedro – Interface JavaFX (1,5 ponto)
 
@@ -324,22 +319,6 @@ Enquanto o `insert` não estiver pronto, Isabelle, Pedro e Laura programam contr
 
 ---
 
-## 🎓 Prova de autoria
-
-Cada integrante deve conseguir explicar, sem consultar:
-
-- Como a árvore é montada e por que ponto vai à esquerda e traço à direita
-- Como o `insert` percorre o código e cria nós intermediários
-- Como `decodeLetter` e `encodeLetter` funcionam (e a diferença entre os dois)
-- Como o desenho calcula a posição dos nós (`xOffset` caindo pela metade a cada nível)
-- Como o som é gerado e por que roda em outra thread
-- O que cada classe faz e por que foi separada
-
-> [!TIP]
-> **Antes da data da prova:** reunião em que cada pessoa explica a sua parte aos outros e responde perguntas sobre as partes dos colegas.
-
----
-
 ## ✅ Checklist de entrega
 
 - [ ] Projeto compila e roda em todas as máquinas do grupo
@@ -350,7 +329,6 @@ Cada integrante deve conseguir explicar, sem consultar:
 - [ ] README completo, com os nomes dos integrantes
 - [ ] Repositório **público**
 - [ ] Link entregue no Canvas até **06/11/2026**
-- [ ] Todos preparados para a prova de autoria
 
 ---
 
