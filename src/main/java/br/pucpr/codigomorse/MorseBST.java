@@ -13,6 +13,33 @@ public class MorseBST {
 
     // TODO (Gabriela): ponto (.) vai para a esquerda, traço (-) vai para a direita
     public void insert(char letter, String morseCode) {
+        if (morseCode == null || morseCode.isEmpty()) {
+            throw new IllegalArgumentException("Código Morse vazio para a letra " + letter);
+        }
+
+        Node current = root;
+
+        for (int i = 0; i < morseCode.length(); i++) {
+            char symbol = morseCode.charAt(i);
+
+            if (symbol == '.') {
+                if (current.left == null) {
+                    current.left = new Node(' '); // nó intermediário vazio
+                }
+                current = current.left;
+            } else if (symbol == '-') {
+                if (current.right == null) {
+                    current.right = new Node(' '); // nó intermediário vazio
+                }
+                current = current.right;
+            } else {
+                throw new IllegalArgumentException(
+                        "Símbolo inválido '" + symbol + "' no código " + morseCode);
+            }
+        }
+
+        // último nó do caminho: é aqui que a letra fica
+        current.letter = letter;
     }
 
     // TODO (Isabelle)
