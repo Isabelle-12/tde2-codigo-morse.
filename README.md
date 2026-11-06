@@ -261,21 +261,21 @@ No IntelliJ, abra a aba **TODO** (barra inferior ou **View → Tool Windows → 
 📁 **Onde mexer:** `TreeVisualizer.java` (método `start()`); `TreeDrawer.java` só se quiser melhorar o desenho  
 🌿 **Branch sugerida:** `feature/interface`
 
-- [ ] Campo de texto para o usuário digitar
-- [ ] Botões **Codificar**, **Decodificar** e **Tocar som** (ligado à parte da Laura)
-- [ ] Área de resultado na tela
-- [ ] Canvas da árvore dentro de um `ScrollPane` (a árvore fica larga)
-- [ ] Mensagens de erro amigáveis
+- [X] Campo de texto para o usuário digitar
+- [X] Botões **Codificar**, **Decodificar** e **Tocar som** (ligado à parte da Laura)
+- [X] Área de resultado na tela
+- [X] Canvas da árvore dentro de um `ScrollPane` (a árvore fica larga)
+- [X] Mensagens de erro amigáveis
 
 ### 🔊 Laura – Som e testes (+1 ponto e 1,5 ponto)
 
 📁 **Onde mexer:** `MorseSoundPlayer.java` (método `playMorse`) e a pasta `src/test/java/br/pucpr/codigomorse/`  
 🌿 **Branch sugerida:** `feature/som`
 
-- [ ] `MorseSoundPlayer` com `javax.sound.sampled`: tom de ~600 Hz, ponto curto, traço longo, pausas entre letras e palavras
-- [ ] Tocar em **thread separada**, para a janela não travar
-- [ ] Testes JUnit (já estão no `pom.xml`) para `insert`, `decode` e `encode`
-- [ ] Revisar nomes e camelCase em todo o código
+- [x] `MorseSoundPlayer` com `javax.sound.sampled`: tom de ~600 Hz, ponto curto, traço longo, pausas entre letras e palavras
+- [x] Tocar em **thread separada**, para a janela não travar
+- [x] Testes JUnit (já estão no `pom.xml`) para `insert`, `decode` e `encode`
+- [x] Revisar nomes e camelCase em todo o código
 
 ### 🔗 Ordem e dependências
 
