@@ -22,7 +22,7 @@
 > [!IMPORTANT]
 > 📅 **Data de entrega: 06/11/2026 (sexta-feira)**
 > Entrega pelo link do repositório no GitHub (público) ou pelo projeto compactado no Canvas.
-
+> Link do videio do funcionamento da ferramente: https://youtu.be/6Pbsx4k1IQ8
 ---
 
 ## 📑 Índice
@@ -321,14 +321,14 @@ Enquanto o `insert` não estiver pronto, Isabelle, Pedro e Laura programam contr
 
 ## ✅ Checklist de entrega
 
-- [ ] Projeto compila e roda em todas as máquinas do grupo
-- [ ] Inserção funcionando e árvore desenhada corretamente
-- [ ] Decodificar e codificar funcionando, com entrada inválida tratada
-- [ ] Som funcionando
-- [ ] Código modularizado, com camelCase
-- [ ] README completo, com os nomes dos integrantes
-- [ ] Repositório **público**
-- [ ] Link entregue no Canvas até **06/11/2026**
+- [X] Projeto compila e roda em todas as máquinas do grupo
+- [X] Inserção funcionando e árvore desenhada corretamente
+- [X] Decodificar e codificar funcionando, com entrada inválida tratada
+- [X] Som funcionando
+- [X] Código modularizado, com camelCase
+- [X] README completo, com os nomes dos integrantes
+- [X] Repositório **público**
+- [X] Link entregue no Canvas até **06/11/2026**
 
 ---
 
