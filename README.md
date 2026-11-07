@@ -22,7 +22,7 @@
 > [!IMPORTANT]
 > 📅 **Data de entrega: 06/11/2026 (sexta-feira)**
 > Entrega pelo link do repositório no GitHub (público) ou pelo projeto compactado no Canvas.
-> Link do videio do funcionamento da ferramente: https://youtu.be/6Pbsx4k1IQ8
+> Link do videio do funcionamento da ferramenta: https://youtu.be/6Pbsx4k1IQ8
 ---
 
 ## 📑 Índice
